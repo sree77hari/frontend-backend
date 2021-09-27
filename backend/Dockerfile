@@ -1,7 +1,7 @@
 #FROM artifactory-qa.bmogc.net/rhel7
 FROM registry.access.redhat.com/rhel7
 #FROM openshift/rhel7
-
+RUN subscription-manager register --username=barora --password=Bhupesh@1 --auto-attach
 
 RUN yum --disablerepo='*' --enablerepo=rhel-7-server-rpms --enablerepo=rhel-7-server-extras-rpms update -y && \
     yum --disablerepo='*' --enablerepo=rhel-7-server-rpms --enablerepo=rhel-7-server-extras-rpms install -y hostname net-tools psmisc mariadb-server mariadb && yum clean all
