@@ -7,7 +7,7 @@ FROM registry.access.redhat.com/rhel7
 #    echo "latest" > /etc/yum/vars/patchlevel
 
 #ADD container.repo /etc/yum.repos.d/
-
+RUN subscription-manager register --username=barora --password=Bhupesh@1 --auto-attach
 
 RUN yum --disablerepo='*' --enablerepo=rhel-7-server-rpms --enablerepo=rhel-7-server-extras-rpms update -y && \
     yum --disablerepo='*' --enablerepo=rhel-7-server-rpms --enablerepo=rhel-7-server-extras-rpms install -y httpd mod_rewrite php php-bcmath php-cli php-common php-devel php-mysql php-odbc php-pdo  php-pspell php-pgsql php-ldap php-mbstring php-gd mod_ssl && yum clean all
